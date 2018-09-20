@@ -1,7 +1,7 @@
 Boilerplate Symfony con struttura cartelle DDD
 ========================
 
-Symfony 3.4 con struttuca cartelle per modellare in DDD
+Symfony 4.1 con struttuca cartelle per modellare in DDD
 
 ## Preparazione ambiente sviluppo
 L'applicazione funziona all'interno di un conainer docker. Preparare l'ambiente in questo modo:
