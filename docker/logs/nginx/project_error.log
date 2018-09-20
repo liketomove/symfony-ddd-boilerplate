@@ -1,0 +1,99 @@
+2018/08/29 15:54:11 [error] 7#7: *90 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 172.21.0.1, server: _, request: "GET /requests/counter/2018-04-01/2018-08-30 HTTP/1.1", upstream: "fastcgi://172.21.0.3:9000", host: "localhost:8080"
+2018/08/29 16:08:24 [error] 7#7: *96 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 172.21.0.1, server: _, request: "GET /requests/counter/2018-04-01/2018-08-30 HTTP/1.1", upstream: "fastcgi://172.21.0.3:9000", host: "localhost:8080"
+2018/09/05 08:45:48 [error] 7#7: *75 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 172.22.0.1, server: _, request: "GET /requests/counter/2018-04-01/2018-08-30 HTTP/1.1", upstream: "fastcgi://172.22.0.4:9000", host: "localhost:8080"
+2018/09/05 08:49:26 [error] 7#7: *80 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 172.22.0.1, server: _, request: "GET /quotes/counter/2018-04-01/2018-08-30 HTTP/1.1", upstream: "fastcgi://172.22.0.4:9000", host: "localhost:8080"
+2018/09/05 09:33:27 [error] 7#7: *90 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 172.22.0.1, server: _, request: "GET /quotes/counter/2018-04-01/2018-08-30 HTTP/1.1", upstream: "fastcgi://172.22.0.4:9000", host: "localhost:8080"
+2018/09/05 09:36:26 [error] 7#7: *94 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 172.22.0.1, server: _, request: "GET /quotes/counter/2018-04-01/2018-08-30 HTTP/1.1", upstream: "fastcgi://172.22.0.4:9000", host: "localhost:8080"
+2018/09/05 09:49:19 [error] 7#7: *112 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 172.22.0.1, server: _, request: "GET /quotes/counter/2018-04-01/2018-08-30 HTTP/1.1", upstream: "fastcgi://172.22.0.4:9000", host: "localhost:8080"
+2018/09/05 09:52:14 [error] 7#7: *117 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 192512 bytes) in /var/www/app/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php on line 107
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/app/public/index.php:0
+PHP message: PHP   2. App\Kernel->handle($request = *uninitialized*, $type = *uninitialized*, $catch = *uninitialized*) /var/www/app/public/index.php:37
+PHP message: PHP   3. Symfony\Component\HttpKernel\HttpKernel->handle($request = *uninitialized*, $type = *uninitialized*, $catch = *uninitialized*) /var/www/app/vendor/symfony/http-kernel/Kernel.php:188
+PHP message: PHP   4. Symfony\Component\HttpKernel\HttpKernel->handleRaw($request = *uninitialized*, $type = *uninitialized*) /var/www/app/vendor/symfony/http-kernel/HttpKernel.php:66
+PHP message: PHP   5. App\Infrastructure\Delivery\Http\Controller\StatController->getTotalRepliedQuotes($service = *uninitialized*, $from = *uninitialized*, $to = *uninitialized*) /var/www/app/vendor/symfony/http-kernel/HttpKernel.php:149
+PHP message: PHP   6. App\Application\Service\Stat\RepliedRequestsCounterService->execute($request = *uninitialized*) /var/www/app/src/Infrastructure/Delivery/Http/Controller/StatController.php:22
+PHP message: PHP   7. App\Application\Service\Stat\RepliedRequestsCounterService->doExecute($request = *uninitialized*) /var/www/app/src/Application/Service/Stat/RepliedRequestsCounterService.php:11
+PHP message: PHP   8. App\Infrastructure\Domain\Stat\Doctrine\DoctrineStatRepository->totalQuoteReplies($from = *uninitialized*, $to = *uninitialized*, $conversationIDs = *uninitialized*) /var/www/app/src/Application/Service/Stat/RepliedRequestsCounterService.php:32
+PHP message: PHP   9. Doctrine\ORM\NativeQuery->getResult($hydrationMode = *uninitialized*) /var/www/app/src/Infrastructure/Domain/Stat/Doctrine/DoctrineStatRepository.php:114
+PHP message: PHP  10. Doctrine\ORM\NativeQuery->execute($parameters
+2018/09/05 09:52:14 [error] 7#7: *117 FastCGI sent in stderr: "App\Application\Service\Stat\RepliedRequestsCounterService->execute($request = *uninitialized*) /var/www/app/src/Infrastructure/Delivery/Http/Controller/StatController.php:22
+PHP message: PHP   7. App\Application\Service\Stat\RepliedRequestsCounterService->doExecute($request = *uninitialized*) /var/www/app/src/Application/Service/Stat/RepliedRequestsCounterService.php:11
+PHP message: PHP   8. App\Infrastructure\Domain\Stat\Doctrine\DoctrineStatRepository->totalQuoteReplies($from = *uninitialized*, $to = *uninitialized*, $conversationIDs = *uninitialized*) /var/www/app/src/Application/Service/Stat/RepliedRequestsCounterService.php:32
+PHP message: PHP   9. Doctrine\ORM\NativeQuery->getResult($hydrationMode = *uninitialized*) /var/www/app/src/Infrastructure/Domain/Stat/Doctrine/DoctrineStatRepository.php:114
+PHP message: PHP  10. Doctrine\ORM\NativeQuery->execute($parameters = *uninitialized*, $hydrationMode = *uninitialized*) /var/www/app/vendor/doctrine/orm/lib/Doctrine/ORM/AbstractQuery.php:716
+PHP message: PHP  11. Doctrine\ORM\NativeQuery->executeIgnoreQueryCache($parameters = *uninitialized*, $hydrationMode = *uninitialized*) /var/www/app/vendor/doctrine/orm/lib/Doctrine/ORM/AbstractQuery.php:912
+PHP message: PHP  12. Doctrine\ORM\NativeQuery->_doExecute() /var/www/app/vendor/doctrine/orm/lib/Doctrine/ORM/AbstractQuery.php:957
+PHP message: PHP  13. Doctrine\DBAL\Connection->executeQuery($query = *uninitialized*, $params = *uninitialized*, $types = *uninitialized*, $qcp = *uninitialized*) /var/www/app/vendor/doctrine/orm/lib/Doctrine/ORM/NativeQuery.php:89
+PHP message: PHP  14. Doctrine\DBAL\Driver\PDOConnection->query(*uninitialized*) /var/www/app/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php:940
+PHP message: PHP  15. Doctrine\DBAL\Driver\PDOConnection->query(*uninitialized*) /var/www/app/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php:107
+PHP message: PHP  16. Symfony\Component\Debug\ErrorHandler::handleFatalError($error =
+2018/09/05 09:53:16 [error] 7#7: *117 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 49152 bytes) in /var/www/app/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php on line 107
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/app/public/index.php:0
+PHP message: PHP   2. App\Kernel->handle($request = *uninitialized*, $type = *uninitialized*, $catch = *uninitialized*) /var/www/app/public/index.php:37
+PHP message: PHP   3. Symfony\Component\HttpKernel\HttpKernel->handle($request = *uninitialized*, $type = *uninitialized*, $catch = *uninitialized*) /var/www/app/vendor/symfony/http-kernel/Kernel.php:188
+PHP message: PHP   4. Symfony\Component\HttpKernel\HttpKernel->handleRaw($request = *uninitialized*, $type = *uninitialized*) /var/www/app/vendor/symfony/http-kernel/HttpKernel.php:66
+PHP message: PHP   5. App\Infrastructure\Delivery\Http\Controller\StatController->getTotalRepliedQuotes($service = *uninitialized*, $from = *uninitialized*, $to = *uninitialized*) /var/www/app/vendor/symfony/http-kernel/HttpKernel.php:149
+PHP message: PHP   6. App\Application\Service\Stat\RepliedRequestsCounterService->execute($request = *uninitialized*) /var/www/app/src/Infrastructure/Delivery/Http/Controller/StatController.php:22
+PHP message: PHP   7. App\Application\Service\Stat\RepliedRequestsCounterService->doExecute($request = *uninitialized*) /var/www/app/src/Application/Service/Stat/RepliedRequestsCounterService.php:11
+PHP message: PHP   8. App\Infrastructure\Domain\Stat\Doctrine\DoctrineStatRepository->totalQuoteReplies($from = *uninitialized*, $to = *uninitialized*, $conversationIDs = *uninitialized*) /var/www/app/src/Application/Service/Stat/RepliedRequestsCounterService.php:32
+PHP message: PHP   9. Doctrine\ORM\NativeQuery->getResult($hydrationMode = *uninitialized*) /var/www/app/src/Infrastructure/Domain/Stat/Doctrine/DoctrineStatRepository.php:114
+PHP message: PHP  10. Doctrine\ORM\NativeQuery->execute($parameters 
+2018/09/05 09:53:16 [error] 7#7: *117 FastCGI sent in stderr: "pp\Application\Service\Stat\RepliedRequestsCounterService->execute($request = *uninitialized*) /var/www/app/src/Infrastructure/Delivery/Http/Controller/StatController.php:22
+PHP message: PHP   7. App\Application\Service\Stat\RepliedRequestsCounterService->doExecute($request = *uninitialized*) /var/www/app/src/Application/Service/Stat/RepliedRequestsCounterService.php:11
+PHP message: PHP   8. App\Infrastructure\Domain\Stat\Doctrine\DoctrineStatRepository->totalQuoteReplies($from = *uninitialized*, $to = *uninitialized*, $conversationIDs = *uninitialized*) /var/www/app/src/Application/Service/Stat/RepliedRequestsCounterService.php:32
+PHP message: PHP   9. Doctrine\ORM\NativeQuery->getResult($hydrationMode = *uninitialized*) /var/www/app/src/Infrastructure/Domain/Stat/Doctrine/DoctrineStatRepository.php:114
+PHP message: PHP  10. Doctrine\ORM\NativeQuery->execute($parameters = *uninitialized*, $hydrationMode = *uninitialized*) /var/www/app/vendor/doctrine/orm/lib/Doctrine/ORM/AbstractQuery.php:716
+PHP message: PHP  11. Doctrine\ORM\NativeQuery->executeIgnoreQueryCache($parameters = *uninitialized*, $hydrationMode = *uninitialized*) /var/www/app/vendor/doctrine/orm/lib/Doctrine/ORM/AbstractQuery.php:912
+PHP message: PHP  12. Doctrine\ORM\NativeQuery->_doExecute() /var/www/app/vendor/doctrine/orm/lib/Doctrine/ORM/AbstractQuery.php:957
+PHP message: PHP  13. Doctrine\DBAL\Connection->executeQuery($query = *uninitialized*, $params = *uninitialized*, $types = *uninitialized*, $qcp = *uninitialized*) /var/www/app/vendor/doctrine/orm/lib/Doctrine/ORM/NativeQuery.php:89
+PHP message: PHP  14. Doctrine\DBAL\Driver\PDOConnection->query(*uninitialized*) /var/www/app/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php:940
+PHP message: PHP  15. Doctrine\DBAL\Driver\PDOConnection->query(*uninitialized*) /var/www/app/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php:107
+PHP message: PHP  16. Symfony\Component\Debug\ErrorHandler::handleFatalError($error = 
+2018/09/05 09:54:11 [error] 7#7: *117 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 36864 bytes) in /var/www/app/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php on line 107
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/app/public/index.php:0
+PHP message: PHP   2. App\Kernel->handle($request = *uninitialized*, $type = *uninitialized*, $catch = *uninitialized*) /var/www/app/public/index.php:37
+PHP message: PHP   3. Symfony\Component\HttpKernel\HttpKernel->handle($request = *uninitialized*, $type = *uninitialized*, $catch = *uninitialized*) /var/www/app/vendor/symfony/http-kernel/Kernel.php:188
+PHP message: PHP   4. Symfony\Component\HttpKernel\HttpKernel->handleRaw($request = *uninitialized*, $type = *uninitialized*) /var/www/app/vendor/symfony/http-kernel/HttpKernel.php:66
+PHP message: PHP   5. App\Infrastructure\Delivery\Http\Controller\StatController->getTotalRepliedQuotes($service = *uninitialized*, $from = *uninitialized*, $to = *uninitialized*) /var/www/app/vendor/symfony/http-kernel/HttpKernel.php:149
+PHP message: PHP   6. App\Application\Service\Stat\RepliedRequestsCounterService->execute($request = *uninitialized*) /var/www/app/src/Infrastructure/Delivery/Http/Controller/StatController.php:22
+PHP message: PHP   7. App\Application\Service\Stat\RepliedRequestsCounterService->doExecute($request = *uninitialized*) /var/www/app/src/Application/Service/Stat/RepliedRequestsCounterService.php:11
+PHP message: PHP   8. App\Infrastructure\Domain\Stat\Doctrine\DoctrineStatRepository->totalQuoteReplies($from = *uninitialized*, $to = *uninitialized*, $conversationIDs = *uninitialized*) /var/www/app/src/Application/Service/Stat/RepliedRequestsCounterService.php:32
+PHP message: PHP   9. Doctrine\ORM\NativeQuery->getResult($hydrationMode = *uninitialized*) /var/www/app/src/Infrastructure/Domain/Stat/Doctrine/DoctrineStatRepository.php:114
+PHP message: PHP  10. Doctrine\ORM\NativeQuery->execute($parameters 
+2018/09/05 09:54:11 [error] 7#7: *117 FastCGI sent in stderr: "pp\Application\Service\Stat\RepliedRequestsCounterService->execute($request = *uninitialized*) /var/www/app/src/Infrastructure/Delivery/Http/Controller/StatController.php:22
+PHP message: PHP   7. App\Application\Service\Stat\RepliedRequestsCounterService->doExecute($request = *uninitialized*) /var/www/app/src/Application/Service/Stat/RepliedRequestsCounterService.php:11
+PHP message: PHP   8. App\Infrastructure\Domain\Stat\Doctrine\DoctrineStatRepository->totalQuoteReplies($from = *uninitialized*, $to = *uninitialized*, $conversationIDs = *uninitialized*) /var/www/app/src/Application/Service/Stat/RepliedRequestsCounterService.php:32
+PHP message: PHP   9. Doctrine\ORM\NativeQuery->getResult($hydrationMode = *uninitialized*) /var/www/app/src/Infrastructure/Domain/Stat/Doctrine/DoctrineStatRepository.php:114
+PHP message: PHP  10. Doctrine\ORM\NativeQuery->execute($parameters = *uninitialized*, $hydrationMode = *uninitialized*) /var/www/app/vendor/doctrine/orm/lib/Doctrine/ORM/AbstractQuery.php:716
+PHP message: PHP  11. Doctrine\ORM\NativeQuery->executeIgnoreQueryCache($parameters = *uninitialized*, $hydrationMode = *uninitialized*) /var/www/app/vendor/doctrine/orm/lib/Doctrine/ORM/AbstractQuery.php:912
+PHP message: PHP  12. Doctrine\ORM\NativeQuery->_doExecute() /var/www/app/vendor/doctrine/orm/lib/Doctrine/ORM/AbstractQuery.php:957
+PHP message: PHP  13. Doctrine\DBAL\Connection->executeQuery($query = *uninitialized*, $params = *uninitialized*, $types = *uninitialized*, $qcp = *uninitialized*) /var/www/app/vendor/doctrine/orm/lib/Doctrine/ORM/NativeQuery.php:89
+PHP message: PHP  14. Doctrine\DBAL\Driver\PDOConnection->query(*uninitialized*) /var/www/app/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php:940
+PHP message: PHP  15. Doctrine\DBAL\Driver\PDOConnection->query(*uninitialized*) /var/www/app/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php:107
+PHP message: PHP  16. Symfony\Component\Debug\ErrorHandler::handleFatalError($error = 
+2018/09/05 10:39:39 [error] 7#7: *179 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 172.22.0.1, server: _, request: "GET /quotes/counter/2018-04-01/2018-08-30 HTTP/1.1", upstream: "fastcgi://172.22.0.4:9000", host: "localhost:8080"
+2018/09/05 10:42:11 [error] 7#7: *179 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 172.22.0.1, server: _, request: "GET /quotes/counter/2018-04-01/2018-08-30 HTTP/1.1", upstream: "fastcgi://172.22.0.4:9000", host: "localhost:8080"
+2018/09/05 10:46:18 [error] 7#7: *191 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 172.22.0.1, server: _, request: "GET /quotes/counter/2018-04-01/2018-08-30 HTTP/1.1", upstream: "fastcgi://172.22.0.4:9000", host: "localhost:8080"
+2018/09/05 12:32:27 [error] 7#7: *238 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 172.22.0.1, server: _, request: "GET /quotes/counter/2018-08-01/2018-08-30 HTTP/1.1", upstream: "fastcgi://172.22.0.4:9000", host: "localhost:8080"
+2018/09/05 12:34:29 [error] 7#7: *238 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 172.22.0.1, server: _, request: "GET /quotes/counter/2018-08-01/2018-08-30 HTTP/1.1", upstream: "fastcgi://172.22.0.4:9000", host: "localhost:8080"
+2018/09/05 12:46:15 [error] 7#7: *256 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 172.22.0.1, server: _, request: "GET /quotes/counter/2018-08-01/2018-08-30 HTTP/1.1", upstream: "fastcgi://172.22.0.4:9000", host: "localhost:8080"
+2018/09/05 12:49:49 [error] 7#7: *262 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 172.22.0.1, server: _, request: "GET /quotes/counter/2018-08-01/2018-08-30 HTTP/1.1", upstream: "fastcgi://172.22.0.4:9000", host: "localhost:8080"
+2018/09/05 12:56:05 [error] 7#7: *265 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 172.22.0.1, server: _, request: "GET /quotes/counter/2018-08-01/2018-08-30 HTTP/1.1", upstream: "fastcgi://172.22.0.4:9000", host: "localhost:8080"
+2018/09/05 13:09:46 [error] 7#7: *277 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 172.22.0.1, server: _, request: "GET /quotes/counter/2018-08-01/2018-08-30 HTTP/1.1", upstream: "fastcgi://172.22.0.4:9000", host: "localhost:8080"
+2018/09/05 13:15:19 [error] 7#7: *296 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 172.22.0.1, server: _, request: "GET /requests/counter/2018-08-01/2018-08-30 HTTP/1.1", upstream: "fastcgi://172.22.0.4:9000", host: "localhost:8080"
+2018/09/05 13:17:37 [error] 7#7: *299 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 172.22.0.1, server: _, request: "GET /quotes/counter/2018-08-01/2018-08-30 HTTP/1.1", upstream: "fastcgi://172.22.0.4:9000", host: "localhost:8080"
+2018/09/20 07:07:59 [error] 8#8: *1 FastCGI sent in stderr: "PHP message: PHP Warning:  require(/var/www/app/public/../vendor/autoload.php): failed to open stream: No such file or directory in /var/www/app/public/index.php on line 8
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/app/public/index.php:0
+PHP message: PHP Fatal error:  require(): Failed opening required '/var/www/app/public/../vendor/autoload.php' (include_path='.:/usr/share/php') in /var/www/app/public/index.php on line 8
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/app/public/index.php:0" while reading response header from upstream, client: 172.18.0.1, server: _, request: "GET / HTTP/1.1", upstream: "fastcgi://172.18.0.3:9000", host: "localhost:8080"
+2018/09/20 07:07:59 [error] 8#8: *1 FastCGI sent in stderr: "PHP message: PHP Warning:  require(/var/www/app/public/../vendor/autoload.php): failed to open stream: No such file or directory in /var/www/app/public/index.php on line 8
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/app/public/index.php:0
+PHP message: PHP Fatal error:  require(): Failed opening required '/var/www/app/public/../vendor/autoload.php' (include_path='.:/usr/share/php') in /var/www/app/public/index.php on line 8
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/app/public/index.php:0" while reading response header from upstream, client: 172.18.0.1, server: _, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.18.0.3:9000", host: "localhost:8080", referrer: "http://localhost:8080/"
