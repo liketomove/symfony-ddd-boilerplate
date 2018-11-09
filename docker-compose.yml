@@ -1,8 +1,13 @@
-version: '3'
+version: '3.7'
 
 volumes:
   app_database:
   app_cache: {}
+
+networks:
+  my_app_net:
+    driver: bridge
+    name: my_app_net
 
 services:
   web:
@@ -20,32 +25,42 @@ services:
     hostname: app_hostname
     volumes:
       - ./:/var/www/app
+      - ./docker/data/shell_history:/home/utente/shell_history
+    networks:
+      - my_app_net
     environment:
-      - APP_ENV=${APP_ENV}
+      - HISTFILE=/home/utente/shell_history/.zsh_history
 
-  database:
+  servicedb:
     image: mysql:5.7
-    restart: always
+    #restart: always
     volumes:
       - app_database:/var/lib/mysql
       - ./docker/mysql/custom.cnf:/etc/mysql/conf.d/custom.cnf
+      - ./docker/data/db:/docker-entrypoint-initdb.d
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=app_db
+    #- MYSQL_DATABASE=adrias_web
     ports:
       - '3307:3306'
     command: mysqld --sql_mode="" #Per mysql, non serve per mariadb
+    networks:
+      - my_app_net
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
       - "8081:80"
     depends_on:
-      - database
+      - servicedb
     environment:
-      - PMA_HOST=database
+      - PMA_HOST=servicedb
+    networks:
+      - my_app_net
 
   servicememcached:
     image: memcached:latest
     volumes:
       - app_cache:/var/lib/memcached
+    networks:
+      - my_app_net

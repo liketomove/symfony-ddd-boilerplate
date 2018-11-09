@@ -1,17 +1,34 @@
 {
   "type": "project",
+  "name": "matiux/symfony-ddd-boilerplate",
   "license": "proprietary",
+  "authors": [
+    {
+      "name": "Matteo Galacci",
+      "email": "m.galacci@gmail.com",
+      "homepage": "https://www.matteogalacci.it",
+      "role": "Back-end developer"
+    }
+  ],
+  "description": "Boilerplate per modellare in DDD con Symfony 4",
   "require": {
     "php": "^7.1.3",
     "ext-ctype": "*",
     "ext-iconv": "*",
+    "ext-json": "*",
+    "matiux/ddd-starter-pack": "^1.4",
     "symfony/console": "*",
     "symfony/flex": "^1.1",
     "symfony/framework-bundle": "*",
     "symfony/yaml": "*"
   },
   "require-dev": {
-    "symfony/dotenv": "*",
+    "dama/doctrine-test-bundle": "^5.0",
+    "symfony/browser-kit": "*",
+    "symfony/css-selector": "*",
+    "symfony/debug-bundle": "*",
+    "symfony/dotenv": "^4.1",
+    "symfony/phpunit-bridge": "^4.1",
     "symfony/profiler-pack": "^1.0"
   },
   "config": {

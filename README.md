@@ -23,12 +23,11 @@ cp env.dist .env
 ```
 ./dc down -v
 ```
-Per ulteriori informazioni controllare il readme in `./docker/redme.md`
 ## Sviluppo
 
 #### Entrare nel container PHP per lo sviluppo
 ```
-./dc exec --user utente php bash
+./dc enter
 composer install
 ```
 Il container php è configurato per far comunicare Xdebug con PhpStorm
@@ -42,23 +41,7 @@ Il container php è configurato per far comunicare Xdebug con PhpStorm
 
 ## Comandi e Aliases all'interno del container PHP
 
-* `test` è un alias a `vendor/bin/phpunit`
+* `test` è un alias a `./vendor/bin/simple-phpunit`
 * `sf` è un alias a `bin/console` per usare la console di Symfony
 * `sfcc` è un alias a `rm -Rf var/cache/*` per svuotare la cache
 * `memflush` è un alias a `echo \"flush_all\" | nc servicememcached 11211 -q 1"` per svuotare memcached
-
-## Test
-All'interno del container PHP
-```
-test
-test --group integration
-test --group unit
-```
-
-## Fix permessi Symfony:
-
-Da dentro al container php:
-
-```
-./fix-permissions
-```
