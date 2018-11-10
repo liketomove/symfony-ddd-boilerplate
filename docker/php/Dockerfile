@@ -4,5 +4,5 @@ RUN echo 'alias memflush="echo \"flush_all\" | nc servicememcached 11211 -q 1"' 
     && echo 'alias test="./vendor/bin/simple-phpunit"' >> /home/utente/.zshrc \
     && echo 'alias sfcc="rm -Rf var/cache/*"' >> /home/utente/.zshrc
 
-COPY --chown=utente:utente ssh/* /home/utente/.ssh/
-RUN  chmod 600 /home/utente/.ssh/id_rsa
+#COPY --chown=utente:utente ssh/* /home/utente/.ssh/
+#RUN  chmod 600 /home/utente/.ssh/id_rsa
