@@ -16,7 +16,7 @@
     "ext-ctype": "*",
     "ext-iconv": "*",
     "ext-json": "*",
-    "matiux/ddd-starter-pack": "^1.4",
+    "matiux/ddd-starter-pack": "dev-master",
     "symfony/console": "*",
     "symfony/flex": "^1.1",
     "symfony/framework-bundle": "*",
@@ -39,12 +39,13 @@
   },
   "autoload": {
     "psr-4": {
-      "App\\": "src/"
+      "App\\": "src/App/",
+      "Project\\": "src/Project/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "App\\Tests\\": "tests/Project/"
+      "Tests\\": "tests/"
     }
   },
   "replace": {
