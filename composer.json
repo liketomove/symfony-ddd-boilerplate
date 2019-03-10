@@ -76,5 +76,11 @@
       "allow-contrib": false,
       "require": "4.1.*"
     }
-  }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:matiux/ddd-starter-pack.git"
+    }
+  ]
 }
