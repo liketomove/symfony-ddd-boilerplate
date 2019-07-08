@@ -32,7 +32,7 @@ services:
     networks:
       - my_app_net
     environment:
-      - HISTFILE=/home/utente/shell_history/.zsh_history
+      - HISTFILE=/home/utente/shell_history/.x_history
 
   servicedb:
     image: mysql:5.7.24
